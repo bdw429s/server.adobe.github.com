@@ -1,0 +1,33 @@
+{
+    "name":"server.adobe.github.com",
+    "version":"1.0.0",
+    "location":"bdw429s/server.adobe.github.com",
+    "author":"Brad Wood",
+    "slug":"server.adobe.github.com",
+    "type":"projects",
+    "homepage":"https://github.com/bdw429s/server.adobe.github.com",
+    "documentation":"https://github.com/bdw429s/server.adobe.github.com",
+    "repository":{
+        "type":"git",
+        "url":"https://github.com/bdw429s/server.adobe.github.com"
+    },
+    "bugs":"https://github.com/bdw429s/server.adobe.github.com/issues",
+    "shortDescription":"A backend server for adobe.github.io written in ColdFusion (CFML)",
+    "devDependencies":{
+        "testbox":"^2.3.0",
+        "relax":"^2.2.0+00032"
+    },
+    "installPaths":{
+        "coldbox":"coldbox",
+        "testbox":"testbox",
+        "relax":"modules/relax",
+        "cors":"modules\\cors"
+    },
+    "dependencies":{
+        "coldbox":"^4.3.0",
+        "cors":"^1.0.0"
+    },
+    "scripts":{
+        "postVersion":"package set location='bdw429s/server.adobe.github.com#v`package version`' && !git push --follow-tags"
+    }
+}
