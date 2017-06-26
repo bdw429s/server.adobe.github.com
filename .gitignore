@@ -4,3 +4,4 @@ testbox/*
 modules/*
 .project
 .settings/
+settings.xml
