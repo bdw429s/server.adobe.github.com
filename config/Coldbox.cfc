@@ -52,7 +52,7 @@
 	}
 
 	function detectEnvironment() {
-		return getSystemSetting( 'ENVIRONMENT', 'development' );
+		return getSystemSetting( 'CFML_ENV', 'development' );
 	}
 
 	/**
