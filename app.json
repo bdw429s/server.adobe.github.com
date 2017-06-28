@@ -8,7 +8,7 @@
   "env": {
     "CFML_ENV": {
       "description": "The deployment environment",
-      "generator": "development"
+      "value": "development"
     },
     "GHUSER": {
       "description": "The authentication user account.",
