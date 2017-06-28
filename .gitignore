@@ -5,3 +5,4 @@ modules/*
 .project
 .settings/
 settings.xml
+/.env

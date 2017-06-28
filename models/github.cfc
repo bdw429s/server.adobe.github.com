@@ -173,9 +173,13 @@ component accessors="true" singleton {
 		cfhttp( 
 			url = "https://api.github.com#path#",
 			useragent = 'server.adobe.com',
-			result = "local.results",
-			username = settings.GHUser,
-			password = settings.GHPass );
+			result = "local.results"
+			) {
+				cfhttpparam( 
+					type="header",
+					name="Authorization",
+					value="Basic #ToBase64( '#settings.GHUser#:#settings.GHPass#' )#");
+			}
 	
 		if ( results.statusCode contains '200' ) {
 			return deserializeJSON( results.fileContent );
