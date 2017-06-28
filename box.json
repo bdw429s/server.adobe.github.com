@@ -28,6 +28,7 @@
         "cors":"^1.0.0"
     },
     "scripts":{
-        "postVersion":"package set location='bdw429s/server.adobe.github.com#v`package version`' && !git push --follow-tags"
+        "postVersion":"package set location='bdw429s/server.adobe.github.com#v`package version`' && !git push --follow-tags",
+        "onServerStart":"box install"
     }
 }
