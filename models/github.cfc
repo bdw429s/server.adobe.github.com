@@ -61,14 +61,14 @@ component accessors="true" singleton {
 					'orgs' : getOrgs()
 				};
 		
-		var threads = '';
+	//	var threads = '';
 		
 		data.orgs.each( function( org ) {
 			
-			threads = threads.listAppend( 'org-#org.userName#' );
+		//	threads = threads.listAppend( 'org-#org.userName#' );
 			
-			cfthread( name="org-#org.userName#", action='run', org=org ) {
-				try {
+		//	cfthread( name="org-#org.userName#", action='run', org=org ) {
+			//	try {
 				
 					// Get details for each org
 					var orgData = doGithubCall( '/orgs/' & org.userName );
@@ -122,15 +122,15 @@ component accessors="true" singleton {
 						data.repos.append( thisRepo );  			  
 					} ); // End loop over repos.
 					
-				} catch( any e ) {
-					log.error( e );
-				}	
+			//	} catch( any e ) {
+			//		log.error( e );
+			//	}	
 				
-			} // End thread
+		//	} // End thread
 			
 		} ); // End loop over orgs
 		
-		cfthread( action='join', name=threads );
+	//	cfthread( action='join', name=threads );
 		
 		return data;
 	}
@@ -169,27 +169,19 @@ component accessors="true" singleton {
 	private function doGithubCall( required string path ) {
 		
 		var results = {};
-		var params = {
-			url : "https://api.github.com#path#",
-			useragent : 'server.adobe.com',
-			result : "local.results"
-		};
 		
-		if( settings.GHUser.len() ) {
-			params.username = settings.GHUser;
-		}
-		
-		if( settings.GHPass.len() ) {
-			params.password = settings.GHPass;			
-		}
-		
-		cfhttp( attributeCollection=params );
+		cfhttp( 
+			url = "https://api.github.com#path#",
+			useragent = 'server.adobe.com',
+			result = "local.results",
+			username = settings.GHUser,
+			password = settings.GHPass );
 	
 		if ( results.statusCode contains '200' ) {
 			return deserializeJSON( results.fileContent );
 		} else {
 			log.error( 'error for api.github.com#path#", #results.statusCode#, #results.fileContent#, #datetimeFormat( now() )#' );
-			throw( message='GitHub API unreachable. ' & results.responseHeader.status ?: 'ERROR' );
+			throw( message='GitHub API unreachable. ' & ( results.responseHeader.status ?: 'ERROR' ) );
 			}
 		
 	
