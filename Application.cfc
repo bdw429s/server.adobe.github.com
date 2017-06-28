@@ -52,7 +52,7 @@ component{
 		return application.cbBootstrap.onMissingTemplate( argumentCollection=arguments );
 	}
 
-	public function onError2( exception ) output=true {
+	public function onError( exception ) output=true {
 		writeDump( var=arguments.exception.message, output="console");
 		cfcontent( reset="true" );
 		writeOutput( '["error"]' );

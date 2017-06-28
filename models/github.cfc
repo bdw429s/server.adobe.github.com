@@ -185,7 +185,7 @@ component accessors="true" singleton {
 			return deserializeJSON( results.fileContent );
 		} else {
 			log.error( 'error for api.github.com#path#", #results.statusCode#, #results.fileContent#, #datetimeFormat( now() )#' );
-			throw( message='GitHub API unreachable with user [#settings.GHUser#]. ' & ( results.responseHeader.status ?: 'ERROR' ) );
+			throw( message='GitHub API unreachable. ' & ( results.responseHeader.status ?: 'ERROR' ) );
 			}
 		
 	
