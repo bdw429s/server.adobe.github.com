@@ -1,0 +1,31 @@
+{
+  "name": "server.adobe.github.com",
+  "description": "This app does one little thing, and does it well.",
+  "success_url": "/",
+  "scripts": {
+    "predeploy": "/app/build/environment/$CFML_ENV/setup-env.sh"
+  },
+  "env": {
+    "CFML_ENV": {
+      "description": "The deployment environment",
+      "generator": "development"
+    },
+    "GHUSER": {
+      "description": "The authentication user account.",
+      "value": "[USERNAME]"
+    },
+    "GHPASSWORD": {
+      "description": "The authentication password.",
+      "value": "[USERNAME]"
+    },
+    "GHFREQRELOAD": {
+      "description": "The reload frequency.",
+      "value": 60
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/ortus-solutions/heroku-buildpack-commandbox"
+    }
+  ]
+}
