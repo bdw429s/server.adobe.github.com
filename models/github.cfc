@@ -61,14 +61,14 @@ component accessors="true" singleton {
 					'orgs' : getOrgs()
 				};
 		
-	//	var threads = '';
+		var threads = '';
 		
 		data.orgs.each( function( org ) {
 			
-		//	threads = threads.listAppend( 'org-#org.userName#' );
+			threads = threads.listAppend( 'org-#org.userName#' );
 			
-		//	cfthread( name="org-#org.userName#", action='run', org=org ) {
-			//	try {
+			cfthread( name="org-#org.userName#", action='run', org=org ) {
+				try {
 				
 					// Get details for each org
 					var orgData = doGithubCall( '/orgs/' & org.userName );
@@ -122,15 +122,15 @@ component accessors="true" singleton {
 						data.repos.append( thisRepo );  			  
 					} ); // End loop over repos.
 					
-			//	} catch( any e ) {
-			//		log.error( e );
-			//	}	
+				} catch( any e ) {
+					log.error( e );
+				}	
 				
-		//	} // End thread
+			} // End thread
 			
 		} ); // End loop over orgs
 		
-	//	cfthread( action='join', name=threads );
+		cfthread( action='join', name=threads );
 		
 		return data;
 	}
