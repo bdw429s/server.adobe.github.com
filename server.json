@@ -9,5 +9,8 @@
     },
     "jvm":{
         "heapSize":"256"
+    },
+    "app":{
+        "cfengine":"adobe"
     }
 }
