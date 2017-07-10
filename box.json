@@ -29,6 +29,6 @@
     },
     "scripts":{
         "postVersion":"package set location='bdw429s/server.adobe.github.com#v`package version`' && !git push --follow-tags",
-        "onServerStart":"install --production && cd `#expandpath /commandbox` && list"
+        "onServerStart":"install --production"
     }
 }
