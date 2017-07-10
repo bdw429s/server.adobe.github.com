@@ -11,6 +11,6 @@
         "heapSize":"256"
     },
     "app":{
-        "cfengine":"adobe"
+        "cfengine":"adobe@2016"
     }
 }
