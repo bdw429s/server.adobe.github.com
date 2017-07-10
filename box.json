@@ -29,6 +29,6 @@
     },
     "scripts":{
         "postVersion":"package set location='bdw429s/server.adobe.github.com#v`package version`' && !git push --follow-tags",
-        "onServerStart":"box install --production"
+        "onServerStart":"box install --production && echo `#expandpath /commandbox` && repl \"createobject( 'java', 'java.lang.System' ).getProperty('user.dir')\"  && repl \"createobject( 'java', 'java.lang.System' ).getProperty('user.home')\""
     }
 }
