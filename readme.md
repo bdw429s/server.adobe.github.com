@@ -5,7 +5,7 @@ Manage API calls on github to pull Adobe information using an [Adobe ColdFusion]
 
 # Start
 
-After installing dependencies with `box install`, you can lunch the server with:
+After installing dependencies with `box install`, you can launch the server with:
 
 ```
 box start
@@ -24,7 +24,7 @@ Here is the route you can call:
 
 In order for the app to make Github API calls without reaching the limit, you need to authentificate.
 
-The ID and pass are pulled from the local environement variables. Add those lines in your `~/.bashrc`:
+The ID and pass are pulled from the local environment variables. Add those lines in your `~/.bashrc`:
 
 ```
 export GHUSER=[userName]
@@ -33,7 +33,7 @@ export GHPASS=[userPassword]
 
 ## Production
 
-Once you push your server in production, you need to update your environnement variable CFML_ENV. 
+Once you push your server in production, you need to update your environment variable CFML_ENV. 
 
 ```
 export CFML_ENV=production
